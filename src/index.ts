@@ -23,3 +23,48 @@ function calculateTax(income: number, taxYear = 2022): number {
   return income * 0.1;
 }
 calculateTax(50000);
+
+// object
+// type alias
+type Employee = {
+  readonly id: number;
+  name: string;
+  retire: (date: Date) => void;
+};
+
+let employee: Employee = {
+  id: 1,
+  name: "Steve",
+  retire: (date: Date) => {
+    console.log(date);
+  },
+};
+
+// Union
+function kgToLbs(weight: number | string): number {
+  if (typeof weight === "number") return weight * 2.20462;
+  return parseInt(weight) * 2.20462;
+}
+
+kgToLbs(10);
+kgToLbs("10kg");
+
+// intersection
+type Draggable = {
+  drag: () => void;
+};
+
+type Resizeable = {
+  resize: () => void;
+};
+
+type UIWidget = Draggable & Resizeable;
+
+let textBox: UIWidget = {
+  drag: () => {
+    console.log("drag");
+  },
+  resize: () => {
+    console.log("resize");
+  },
+};
