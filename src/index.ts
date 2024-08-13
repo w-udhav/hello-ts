@@ -68,3 +68,33 @@ let textBox: UIWidget = {
     console.log("resize");
   },
 };
+
+// Literal types
+type Quantity = 50 | 100;
+let quantity: Quantity = 50;
+
+// nullable types
+function greet(name: string | null | undefined) {
+  if (name) console.log(`Hello ${name.toUpperCase()}`);
+  else console.log("Hello");
+}
+greet("Steve");
+
+// optional chaining
+type Customer = {
+  birthday?: Date;
+};
+
+function getCustomer(id: number): Customer | null | undefined {
+  return id === 0 ? null : { birthday: new Date() };
+}
+let customer = getCustomer(1);
+// Optional property access operator
+console.log(customer?.birthday?.getFullYear());
+
+// Optional element access operator
+console.log(customer?.["birthday"]?.getFullYear());
+
+// Optional call operator
+let log: any = console.log;
+log?.("a");

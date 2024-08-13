@@ -1,4 +1,5 @@
 "use strict";
+var _a, _b;
 let age = 20;
 if (age < 50)
     age += 10;
@@ -42,4 +43,20 @@ let textBox = {
         console.log("resize");
     },
 };
+let quantity = 50;
+function greet(name) {
+    if (name)
+        console.log(`Hello ${name.toUpperCase()}`);
+    else
+        console.log("Hello");
+}
+greet("Steve");
+function getCustomer(id) {
+    return id === 0 ? null : { birthday: new Date() };
+}
+let customer = getCustomer(1);
+console.log((_a = customer === null || customer === void 0 ? void 0 : customer.birthday) === null || _a === void 0 ? void 0 : _a.getFullYear());
+console.log((_b = customer === null || customer === void 0 ? void 0 : customer["birthday"]) === null || _b === void 0 ? void 0 : _b.getFullYear());
+let log = console.log;
+log === null || log === void 0 ? void 0 : log("a");
 //# sourceMappingURL=index.js.map
